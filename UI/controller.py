@@ -50,12 +50,11 @@ class Controller:
         if self._mese != 0:
             self._view.lst_result.clean()
             seq,c=self._model.sequenza(self._mese)
-            self._view.lst_result.controls.append(ft.Text(f'Sequenza per il mese {self._mese}:'))
+            self._view.lst_result.controls.append(ft.Text(f'Sequenza ottima per il mese {self._mese} con costo {c}:'))
             m=1
             for i in seq:
-                self._view.lst_result.controls.append(ft.Text(f'{m}) città: {i.localita}'))
+                self._view.lst_result.controls.append(ft.Text(f'{m}) città: {i}'))
                 m+=1
-            self._view.lst_result.controls.append(ft.Text(f'Costo totale {c}:'))
             self._view.update_page()
         else:
             self._view.lst_result.clean()
